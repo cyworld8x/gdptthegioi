@@ -1,5 +1,6 @@
 {
   "name": "gdptthegioi",
+  "main": "node_modules/expo/AppEntry.js",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,9 +9,12 @@
   },
   "dependencies": {
     "@shoutem/ui": "^0.23.4",
+    "expo": "^25.0.0",
     "native-base": "^2.3.10",
     "react": "16.0.0",
-    "react-native": "~0.51.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
