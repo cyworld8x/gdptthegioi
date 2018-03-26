@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@shoutem/ui": "^0.23.4",
+    "native-base": "^2.3.10",
     "react": "16.0.0",
     "react-native": "~0.51.0",
     "react-redux": "^5.0.6",

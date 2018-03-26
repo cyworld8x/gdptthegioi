@@ -29,6 +29,7 @@ import {
 
 import { connect } from 'react-redux';
 
+import styles from '../themes/styles';
 import { navigatePush } from '../api/navigatorReducer';
 
 class Home extends Component {
@@ -41,7 +42,7 @@ class Home extends Component {
     this.renderRow = this.renderRow.bind(this);
     this.state = {
       filters: [
-        { name: 'Filter', value: 'Filter' },
+        { name: 'Danh mục', value: 'Filter' },
         { name: 'Sport', value: 'Sport' },
         { name: 'Food', value: 'Food' },
       ],
@@ -139,16 +140,16 @@ class Home extends Component {
               </Button>
             )}
             centerComponent={<Title>TITLE</Title>}
-            
+            rightComponent={  <DropDownMenu
+              options={this.state.filters}
+              selectedOption={this.state.selectedFilter ? this.state.selectedFilter : this.state.filters[0]}
+              onOptionSelected={(filter) => this.setState({ selectedFilter: filter })}
+              titleProperty="name"
+              valueProperty="value"
+            />}
           />
         <NavigationBar  child={true} >  </NavigationBar>
-        <DropDownMenu
-                options={this.state.filters}
-                selectedOption={this.state.selectedFilter ? this.state.selectedFilter : this.state.filters[0]}
-                onOptionSelected={(filter) => this.setState({ selectedFilter: filter })}
-                titleProperty="name"
-                valueProperty="value"
-              />
+      
         <ListView
          data={groupedData}
          renderRow={this.renderRow}

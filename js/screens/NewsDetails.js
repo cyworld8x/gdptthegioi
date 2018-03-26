@@ -13,7 +13,9 @@ import {
   Tile,
   Screen
 } from '@shoutem/ui';
-
+import {
+  Badge
+} from 'native-base';
 import {
   NavigationBar,
 } from '@shoutem/ui/navigation';
@@ -48,6 +50,9 @@ export default class NewsDetails extends Component {
           </ImageBackground>
 
           <Screen styleName="paper">
+            <Badge rounded style={{ marginTop:15,marginLeft:15,marginRight:15, backgroundColor: '#b8c4c9' }}>
+              <Text  style={{justifyContent: 'center', marginTop: 3, color: '#f7f7f7'}} >Các bài khác trong mục</Text>
+            </Badge>
             <Text styleName="md-gutter multiline">{news.description}</Text>
 
             <Divider styleName="line" />
