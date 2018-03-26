@@ -54,9 +54,10 @@ class Home extends Component {
   renderRow(rowData, sectionId, index) {
     // rowData contains grouped data for one row,
     // so we need to remap it into cells and pass to GridRow
+    const { onButtonPress } = this.props;
     if (index === '0') {
       return (
-        <TouchableOpacity onPress={() => onButtonPress(restaurant)} key={index}>
+        <TouchableOpacity onPress={() => onButtonPress(rowData[0])} key={index}>
           <ImageBackground
             styleName="large"
             source={{ uri: rowData[0].image.url }}
