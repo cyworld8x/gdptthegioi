@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "my-new-project",
+    "name": "gdptthegioi",
     "description": "This project is really great.",
-    "slug": "my-new-project",
+    "slug": "gdptthegioi",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
@@ -19,4 +19,5 @@
     }
   }
 }
+
 
