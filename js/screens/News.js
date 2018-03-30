@@ -9,8 +9,9 @@ import {
 
 import { navigatePop } from '../api/navigatorReducer';
 import NewsList from './NewsList';
-import Home from './Home';
+import Home from './home/index';
 import NewsDetails from './NewsDetails';
+import SplashScreen from '../screens/splash/index';
 class News extends Component {
   static propTypes = {
     onNavigateBack: PropTypes.func.isRequired,
@@ -27,8 +28,16 @@ class News extends Component {
 
   renderScene(props) {
     const { route } = props.scene;
-
-    let Screen = route.key === 'NewsDetails' ? NewsDetails : Home;
+    let Screen = SplashScreen;
+    switch (route.key) {
+      case 'SplashScreen':
+        Screen = SplashScreen;
+        break;
+      case 'NewsList':
+        Screen = NewsList;
+        break;
+    }
+    //console.error(route);
     return (<Screen {...route.props} />);
   }
 
@@ -58,6 +67,6 @@ class News extends Component {
 }
 
 export default connect(
-  state => ({ navigationState: state.navigationState }),
+  state => ({ navigationState: state.Navigator.navigationState }),
   { onNavigateBack: navigatePop }
 )(News);

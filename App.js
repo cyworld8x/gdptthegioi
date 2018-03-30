@@ -5,12 +5,10 @@ import thunk from 'redux-thunk';
 import { Examples } from '@shoutem/ui';
 
 import StorageReducer from './js/api/storageReducer';
-import News from './js/screens/News';
-import SplashScreen from './js/screens/splash/index';
-//import { Font, AppLoading } from 'expo';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(StorageReducer);
 
+import StartUp from "./js/app";
 export default class App extends Component {
 
    state = {
@@ -41,7 +39,7 @@ export default class App extends Component {
     return (
       //<Examples />
       <Provider store={store}>
-        <SplashScreen />
+        <StartUp />
       </Provider>
     );
   }

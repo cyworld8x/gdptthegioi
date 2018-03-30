@@ -100,7 +100,7 @@ const saveSettings =async (setting) => {
 
 const loadingSettings = () => {
     try {
-        return AsyncStorage.getItem('@MAN-Setting:key').then((data) => { 
+        return AsyncStorage.getItem('@GDPT-Setting:key').then((data) => { 
             if(data!=null) {
                
                 return JSON.parse(EncryptHelper.decode_base(data)); 

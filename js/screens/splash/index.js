@@ -7,9 +7,9 @@ import styles from "./styles";
 import { connect } from 'react-redux';
 import { loadingDataStorage, saveSettings } from '../../api/actionCreators';
 
-const launchscreenLogo = require("../../../assets/images/icon.png");
+const launchscreenLogo = require("../../../assets/images/version.png");
 import StoragePosts from '../../api/storagePosts';
-import Home from '../../screens/Home';
+import Home from '../home/index';
 import NetInfoHelper from '../../utilities/netInfoHelper'
 import NotificationHelper from '../../utilities/notificationHelper'
 import EncryptHelper from '../../utilities/encryptHelper'
@@ -61,6 +61,7 @@ class SplashScreen extends Component {
 
 	loadingServerSettings()
 	{
+
 		StoragePosts.loadingSettings().then((settings)=> {
 			
 			if(settings==null){
@@ -74,7 +75,8 @@ class SplashScreen extends Component {
   			}
   			if(settings.WebsiteUrl==null){
  				settings.WebsiteUrl = 'http://gdptthegioi.net';
-  			}
+			  }
+			
   			fetch(settings.ApiUrl+ '/info')
   					.then((response) => response.json())
 					.then((responseJson) => {
@@ -87,6 +89,7 @@ class SplashScreen extends Component {
 							var settings = JSON.parse(EncryptHelper.decode_base(responseJson.key)); 
 							
 							var serverSettings = settings;
+							
 							StoragePosts.saveSettings(responseJson.key);
 							this.props.saveSettings(settings);
 							

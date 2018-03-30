@@ -6,7 +6,7 @@ import SettingReducer from './settingReducer';
 const StorageReducer = combineReducers({
     Storage: PostReducer,
     Settings: SettingReducer,
-    Navogator: NavigatorReducer
+    Navigator: NavigatorReducer
 });
 
 export default StorageReducer;
