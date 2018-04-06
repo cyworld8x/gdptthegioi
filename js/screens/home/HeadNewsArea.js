@@ -29,7 +29,8 @@ export default class HeadNewsArea extends Component{
         const  news  = this.props.post;
         
         const  navigation  = this.props.navigation;
-        return (<TouchableOpacity onPress={() => onButtonPress(news)}>
+        
+        return (<TouchableOpacity onPress={() =>navigation.navigate('Detail', { post: news })}>
         <ImageBackground
           styleName="large-banner"
           source={{ uri: news.image }}
