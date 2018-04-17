@@ -20,7 +20,7 @@ export default {
     left: Platform.OS === "android" ? ((deviceHeight > deviceWidth) ? deviceWidth / 2 - 120 /2 :deviceWidth / 2 - 120/2):deviceWidth / 2 - 120/2,
     top:  deviceHeight / 2-160,
     width: 120,
-    height: 142
+    height: 120
   },
   info: {
     alignSelf:'center',

@@ -26,7 +26,7 @@ import {
 import { WebView, ActivityIndicator, ListView} from "react-native";
 
 import NotificationHelper from '../../utilities/notificationHelper';
-
+const launchscreenLogo = require("../../../assets/images/version.png");
 import { connect } from 'react-redux';
 
 import styles from '../../themes/styles';
@@ -151,7 +151,6 @@ class Home extends Component {
 
   onLoadMore() {
 
-    NotificationHelper.Notify("A"+this.state.refreshing);
     if (!this.state.refreshing) {
       this.setState({page : this.state.page + 1} );
      
@@ -218,6 +217,7 @@ class Home extends Component {
   render() {
    
     const { onButtonPress } = this.props;
+    const navigation = this.props.navigation;
     let pos = 0;
     return (
       <View style={{ flex:1 }}>
@@ -225,10 +225,11 @@ class Home extends Component {
           styleName="inline"
           leftComponent={(
             <Button>
-              <Icon name="sidebar" />
+
+              <Image source={launchscreenLogo} style={{width: 40, height: 40}}   />
             </Button>
           )}
-          centerComponent={<Title>TITLE</Title>}
+          centerComponent={<Title>GĐPT</Title>}
           rightComponent={!this.state.isLoading ? (<DropDownMenu
             options={this.state.categories}
             selectedOption={this.state.selectedFilter ? this.state.selectedFilter : this.state.categories[0]}
@@ -255,7 +256,7 @@ class Home extends Component {
 
                 return (<GridRow columns={2} style={{ flex: 1 }}>
 
-                  <TouchableOpacity onPress={() => navigation.navigate('Post', { post: post.sections[0] })} key={post.sections[0].id} styleName="flexible">
+                  <TouchableOpacity onPress={() => navigation.navigate('Detail', { post: post.sections[0] })} key={post.sections[0].id} styleName="flexible">
                     <Card styleName="flexible">
                       <Image
                         styleName="medium-wide"
@@ -271,7 +272,7 @@ class Home extends Component {
                     </Card>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => navigation.navigate('Post', { post: post.sections[1] })} key={post.sections[1].id} styleName="flexible">
+                  <TouchableOpacity onPress={() => navigation.navigate('Detail', { post: post.sections[1] })} key={post.sections[1].id} styleName="flexible">
                     <Card styleName="flexible">
                       <Image
                         styleName="medium-wide"

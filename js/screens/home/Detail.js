@@ -40,6 +40,7 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 
 
+
 import styles from './styles';
 import StorageApi from '../../api/storagePosts';
 import HTMLView from 'react-native-htmlview';
@@ -81,6 +82,8 @@ const htmlStyle = `<style>
         body, html, #height-calculator {
             margin: 0;
             padding: 0;
+            color: '#A8A8A8';
+            text-align: justify;
         }
         #height-calculator {
             position: absolute;
@@ -92,7 +95,8 @@ const htmlStyle = `<style>
             width:98%;
         }
         h2 {
-            font-size: 48px;
+            font-size: 18px;
+            color: '#A8A8A8';
         }
         p {
             font-size: 18px;
@@ -324,7 +328,7 @@ class Detail extends Component {
                             <Icon name="sidebar" />
                         </Button>
                     )}
-                    centerComponent={<Title>TITLE</Title>}
+                    centerComponent={<Title>GĐPT</Title>}
                     rightComponent={(<Text>Loading...</Text>)}
                 />
                 </View>
@@ -333,7 +337,7 @@ class Detail extends Component {
         }
         // Moment.locale('vn');
         let shareOptions = {
-            title: "Chia sẻ bài viết từ ứng dụng GDPT",
+            title: "Chia sẻ bài viết từ ứng dụng GĐPT",
             message: "Một ứng dụng tổng hợp nhiều bài viết về các món ăn đa dạng và phong phú",
             url: this.props.Settings.WebsiteUrl,
             title: "Chia sẻ bài viết từ ứng dụng GDPT"
@@ -345,10 +349,10 @@ class Detail extends Component {
                     styleName="inline"
                     leftComponent={(
                         <Button>
-                            <Icon name="sidebar" />
+                            <Icon name="back" onPress={() =>this.props.navigation.navigate('Home')}/>
                         </Button>
                     )}
-                    centerComponent={<Title>TITLE</Title>}
+                    centerComponent={<Title>GDPT</Title>}
                     rightComponent={!this.state.isLoading ? (<Button
                         transparent
                         onPress={() => this.onOpen()}
@@ -491,7 +495,7 @@ class Detail extends Component {
                                     {this.state.post.posts.map((post) => {
                                         return (<TouchableOpacity key={post.id} onPress={() => {
                                             //this.refresh(post.api);
-                                            this.props.navigation.navigate('ClonePost', { post: post })
+                                            this.props.navigation.navigate('Detail', { post: post })
                                         }}>
                                             <View style={styles.postContent}>
 
